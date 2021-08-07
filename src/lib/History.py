@@ -34,3 +34,10 @@ class History:
             self.title = json_data['title']
             self.description = json_data['description']
             self.date = json_data['date']
+
+      def to_dict(self) -> dict:
+            return {
+                  'title': self.title,
+                  'description': self.description,
+                  'date': self.date
+            }

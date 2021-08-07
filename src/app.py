@@ -10,6 +10,8 @@ from lib.History import History
 
 # create Flask class
 app = Flask(__name__)
+# for Korean encoding
+app.config['JSON_AS_ASCII'] = False
 CORS(app)
 
 Info = DataInfo('data')
@@ -17,7 +19,16 @@ Info = DataInfo('data')
 
 @app.route('/history', methods=['GET'])
 def history():
-      return 'Hello, World!'
+      datas = []
+      # read file
+      for num in range(Info.howmany):
+            datas.append(
+                  History(num, Info.data_path).to_dict()
+            )
+
+      return {
+            'history': datas
+      }
 
 
 # start app
