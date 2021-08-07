@@ -4,13 +4,15 @@ from flask import Flask
 from flask_cors import CORS
 # import data info class
 from lib.DataInfo import DataInfo
+# import history model
+from lib.History import History
 
 
 # create Flask class
 app = Flask(__name__)
 CORS(app)
 
-Data = DataInfo('data')
+Info = DataInfo('data')
 
 
 @app.route('/history', methods=['GET'])

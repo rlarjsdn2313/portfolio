@@ -23,7 +23,7 @@ class DataInfo:
 
             self.update_info()
 
-      def update_info(self):
+      def update_info(self) -> None:
             # read data info file
             with open(self.info_file_path, 'r') as f:
                   json_data = json.load(f)
