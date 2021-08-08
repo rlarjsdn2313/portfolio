@@ -6,6 +6,8 @@ from flask_cors import CORS
 from lib.DataInfo import DataInfo
 # import history model
 from lib.History import History
+# for change dict to json
+import json
 
 
 # create Flask class
@@ -26,9 +28,9 @@ def history():
                   History(num, Info.data_path).to_dict()
             )
 
-      return {
+      return json.dumps({
             'history': datas
-      }
+      }, ensure_ascii=False)
 
 
 # start app
