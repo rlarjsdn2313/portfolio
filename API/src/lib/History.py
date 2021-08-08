@@ -20,6 +20,7 @@ class History:
             self.description = ''
             # [year, month, day, 'SUN...']
             self.date = []
+            self.id = 0
 
             # update model
             self.update()
@@ -34,9 +35,11 @@ class History:
             self.title = json_data['title']
             self.description = json_data['description']
             self.date = json_data['date']
+            self.id = json_data['id']
 
       def to_dict(self) -> dict:
             return {
+                  'id': self.id,
                   'title': self.title,
                   'description': self.description,
                   'date': self.date

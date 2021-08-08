@@ -1,6 +1,9 @@
 import React from 'react'
 import axios from 'axios'
 
+import History from './Components/History';
+
+
 class App extends React.Component {
   state = {
     isLoading: true,
@@ -21,11 +24,21 @@ class App extends React.Component {
     this.getHistory()
   }
 
+
   render() {
+    const { isLoading, history } = this.state;
     return (
       <div>
-        hello!
-      </div>
+        { isLoading ? "Loading..." : 
+        history.map(history => (
+          <History
+            key={ history.id }
+            title={ history.title }
+            description={ history.description }
+            date={ history.date } 
+          />
+        ))}
+      </div> 
     );
   };
 }
